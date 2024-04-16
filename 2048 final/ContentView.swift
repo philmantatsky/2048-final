@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var moves = Array(repeating: "", count: 9)
+    @State private var board = Array(repeating: "", count: 16)
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            
+                }
+            }
         }
-        .padding()
-    }
-}
 
-#Preview {
-    ContentView()
-}
+    #Preview {
+        ContentView()
+    }
