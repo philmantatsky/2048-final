@@ -11,6 +11,7 @@
 		0899CC8B2BCEC33B0085D9A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899CC8A2BCEC33B0085D9A3 /* ContentView.swift */; };
 		0899CC8D2BCEC33D0085D9A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0899CC8C2BCEC33D0085D9A3 /* Assets.xcassets */; };
 		0899CC902BCEC33D0085D9A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0899CC8F2BCEC33D0085D9A3 /* Preview Assets.xcassets */; };
+		0899CC972BD016760085D9A3 /* gameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899CC962BD016760085D9A3 /* gameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		0899CC8A2BCEC33B0085D9A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0899CC8C2BCEC33D0085D9A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0899CC8F2BCEC33D0085D9A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0899CC962BD016760085D9A3 /* gameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				0899CC882BCEC33B0085D9A3 /* _048_finalApp.swift */,
 				0899CC8A2BCEC33B0085D9A3 /* ContentView.swift */,
+				0899CC962BD016760085D9A3 /* gameView.swift */,
 				0899CC8C2BCEC33D0085D9A3 /* Assets.xcassets */,
 				0899CC8E2BCEC33D0085D9A3 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0899CC972BD016760085D9A3 /* gameView.swift in Sources */,
 				0899CC8B2BCEC33B0085D9A3 /* ContentView.swift in Sources */,
 				0899CC892BCEC33B0085D9A3 /* _048_finalApp.swift in Sources */,
 			);

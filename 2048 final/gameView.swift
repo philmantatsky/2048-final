@@ -7,12 +7,15 @@
 
 import SwiftUI
 
-struct gameView: View {
+struct GameView: View {
+    let phrase: String
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(phrase)
+            .navigationTitle("Game View")
     }
 }
 
 #Preview {
-    gameView()
+    GameView(phrase: "")
 }
