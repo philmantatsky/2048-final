@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct CellView: View {
+    let number: Int
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                .fill(number == 0 ? Color.gray : Color.orange)
+            Text(number > 0 ? "\(number)" : "")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+        }
+        .frame(minWidth: 70, minHeight: 70)
     }
 }
 
+
 #Preview {
-    CellView()
+    CellView(number: 1)
 }

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var gameBoard = Array(repeating: [0,0,0,0], count: 4)
     var body: some View {
             NavigationView {
                 VStack {
