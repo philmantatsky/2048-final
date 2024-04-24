@@ -13,15 +13,13 @@ struct ContentView: View {
                 VStack {
                     Text("")
                         .padding()
-
-                    // Navigation link to the game view
-                    NavigationLink(destination: GameView(phrase: "This is from the first view")) {
+                    NavigationLink(destination: GameView(phrase: "Start Game")) {
                         Text("Play Game")
                             .bold()
                             .font(.title)
                     }
                 }
-                .navigationTitle("4096 The Game")
+                .navigationTitle("Menu")
             }
         }
     }

@@ -6,3 +6,9 @@
 //
 
 import Foundation
+class GameViewModel: ObservableObject {
+    @Published var gameBoard = Array(repeating: [0, 0, 0, 0], count: 4)
+
+    func addRandomNumber() {
+    }
+}
