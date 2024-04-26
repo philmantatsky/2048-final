@@ -33,8 +33,17 @@ struct GameView: View {
             .gesture(DragGesture()
                 .onEnded(handleSwipe))
             .padding()
+            .onAppear(perform: startGame)
         }
     }
+    
+    func startGame() {
+        gameBoard = Array(repeating: [0, 0, 0, 0], count: 4)
+        
+        insertNumber()
+        insertNumber()
+    }
+
     
     func insertNumber() {
         var emptySpots = [(Int, Int)]()
@@ -90,7 +99,7 @@ struct GameView: View {
     private func swipeRight() {
         var boardChanged = false
         gameBoard = gameBoard.map { row in
-            var newRow = Array(row.filter { $0 != 0 }.reversed()) 
+            var newRow = Array(row.filter { $0 != 0 }.reversed())
             newRow = merge(row: Array(newRow.reversed()))
             newRow = Array(repeating: 0, count: 4 - newRow.count) + newRow
             if newRow != row {
