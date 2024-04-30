@@ -23,10 +23,12 @@ struct CellView: View {
     }
     func colorNumber (_ number : Int) -> Color {
         switch number {
-        case 2: return Color(red: 0.5, green: 0.9, blue: 1.0)
-        case 4: return Color(red: 0.5, green: 0.5, blue: 2.0)
-        case 8 : return Color(red: 0.1, green: 0.1, blue: 4.0)
-        case 16 : return Color(red: 0.5, green: 0.1, blue: 3.0)
+        case 2: return Color(red: 0.5, green: 0.8, blue: 1.0)
+        case 4: return Color(red: 0.2, green: 0.9, blue: 0.9)
+        case 8 : return Color(red: 0.0, green: 0.9, blue: 0.7)
+        case 16 : return Color(red: 0.0, green: 0.9, blue: 0.5)
+        case 32 : return Color(red: 0.9, green: 0.5, blue: 0.9)
+        case 64 : return Color(red: 0.9, green: 0.3, blue: 0.9)
         default: return Color.gray
         }
     }
@@ -34,5 +36,5 @@ struct CellView: View {
 
 
 #Preview {
-    CellView(number: 1)
+    CellView(number: 64)
 }
