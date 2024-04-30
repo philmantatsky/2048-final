@@ -13,13 +13,22 @@ struct CellView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
-                .fill(number == 0 ? Color.gray : Color.orange)
-            Text(number > 0 ? "\(number)" : "")
+                .fill(self.colorNumber(number))
+                Text(number > 0 ? "\(number)" : "")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
         }
         .frame(minWidth: 70, minHeight: 70)
+    }
+    func colorNumber (_ number : Int) -> Color {
+        switch number {
+        case 2: return Color(red: 0.5, green: 0.9, blue: 1.0)
+        case 4: return Color(red: 0.5, green: 0.5, blue: 2.0)
+        case 8 : return Color(red: 0.1, green: 0.1, blue: 4.0)
+        case 16 : return Color(red: 0.5, green: 0.1, blue: 3.0)
+        default: return Color.gray
+        }
     }
 }
 
