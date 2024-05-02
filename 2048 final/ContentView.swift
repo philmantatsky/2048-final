@@ -18,9 +18,13 @@ struct ContentView: View {
                         Text("Play Game")
                             .bold()
                             .font(.title)
+                           
                     }
                 }
                 .navigationTitle("Menu")
+                .navigationBarBackButtonHidden(true)
+                .padding()
+                .background(Color(red: 0.98, green: 0.75, blue: 0.60))
             }
         }
     }

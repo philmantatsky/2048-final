@@ -10,6 +10,7 @@ import SwiftUI
 struct GameView: View {
     @State private var gameBoard = Array(repeating: [0, 0, 0, 0], count: 4)
     @State private var numbers2 = 2
+    @State private var gameScore = 0
     let phrase: String
     
     var body: some View {
@@ -17,6 +18,10 @@ struct GameView: View {
             VStack {
                 Text(phrase)
                     .font(.headline)
+                    .padding()
+                
+                Text("Score: \(gameScore)")
+                    .font(.title)
                     .padding()
                 
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 4), spacing: 15) {
@@ -43,7 +48,7 @@ struct GameView: View {
         insertNumber()
         insertNumber()
     }
-
+    
     
     func insertNumber() {
         var emptySpots = [(Int, Int)]()
@@ -129,7 +134,9 @@ struct GameView: View {
             var index = 0
             while index < row.count {
                 if index + 1 < row.count && row[index] == row[index + 1] {
-                    result.append(row[index] * 2)
+                    let mergedValue = row[index] * 2
+                    result.append(mergedValue)
+                    gameScore += mergedValue
                     index += 2
                 } else {
                     result.append(row[index])
