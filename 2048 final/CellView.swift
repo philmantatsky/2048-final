@@ -29,6 +29,12 @@ struct CellView: View {
         case 16 : return Color(red: 0.0, green: 0.9, blue: 0.5)
         case 32 : return Color(red: 0.9, green: 0.5, blue: 0.9)
         case 64 : return Color(red: 0.9, green: 0.3, blue: 0.9)
+        case 128 : return Color(red: 0.7, green: 0.3, blue: 0.9)
+        case 256 : return Color(red: 0.5, green: 0.3, blue: 0.9)
+        case 512 : return Color(red: 0.2, green: 0.3, blue: 0.9)
+        case 1024 : return Color(red: 0.0, green: 0.0, blue: 0.6)
+        case 2048 : return Color(red: 0.1, green: 0.4, blue: 0.3)
+        case 4096 : return Color(red: 0.9, green: 0.7, blue: 0.0)
         default: return Color.gray
         }
     }
@@ -36,5 +42,5 @@ struct CellView: View {
 
 
 #Preview {
-    CellView(number: 64)
+    CellView(number: 4096)
 }
