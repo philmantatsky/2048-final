@@ -18,50 +18,55 @@ struct GameView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text(phrase)
-                    .font(.headline)
-                    .padding()
-                
-                Text("High Score: \(highScore)")
-                    .font(.title)
-                    .padding()
-                
-                Text("Score: \(gameScore)")
-                    .font(.title)
-                    .padding()
-                
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 4), spacing: 15) {
-                    ForEach(0..<16, id: \.self) { index in
-                        let row = index / 4
-                        let column = index % 4
-                        CellView(number: gameBoard[row][column])
-                            .aspectRatio(1, contentMode: .fit)
+            ZStack {
+                VStack {
+                    Text(phrase)
+                        .font(.headline)
+                        .padding()
+                    
+                    Text("High Score: \(highScore)")
+                        .font(.title)
+                        .padding()
+                    
+                    Text("Score: \(gameScore)")
+                        .font(.title)
+                        .padding()
+                    
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 4), spacing: 15) {
+                        ForEach(0..<16, id: \.self) { index in
+                            let row = index / 4
+                            let column = index % 4
+                            CellView(number: gameBoard[row][column])
+                                .aspectRatio(1, contentMode: .fit)
+                        }
+                    }
+                    .padding(.horizontal)
+                    if isGameOver {
+                        Text("Game Over!")
+                            .font(.largeTitle)
+                            .foregroundColor(.red)
+                            .padding()
                     }
                 }
-                .padding(.horizontal)
-                if isGameOver {
-                    Text("Game Over!")
-                        .font(.largeTitle)
-                        .foregroundColor(.red)
-                        .padding()
-                                }
+                .navigationTitle("4096")
+                .background(LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.purple.opacity(0.3)]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .edgesIgnoringSafeArea(.all))
+                .foregroundColor(.white)
+                .gesture(DragGesture()
+                    .onEnded(handleSwipe))
+                .padding()
+                .onAppear(perform: startGame)
+                .alert(isPresented: $isGameOver, content: {
+                    Alert(title: Text("Game Over!"), message: Text("You scored \(gameScore) points."), dismissButton: .default(Text("Restart"), action: {
+                        startGame()
+                    }))
+                })
+                .alert(isPresented: $isGameWinner, content: {
+                    Alert(title: Text("Congratulations! You Win!"), message: Text("You scored \(gameScore) points."), dismissButton: .default(Text("Restart"), action: {
+                        startGame()
+                    }))
+                })
             }
-            .navigationTitle("4096")
-            .gesture(DragGesture()
-                .onEnded(handleSwipe))
-            .padding()
-            .onAppear(perform: startGame)
-            .alert(isPresented: $isGameOver, content: {
-                            Alert(title: Text("Game Over!"), message: Text("You scored \(gameScore) points."), dismissButton: .default(Text("Restart"), action: {
-                                startGame()
-                            }))
-                        })
-            .alert(isPresented: $isGameWinner, content: {
-                            Alert(title: Text("Congratulations! You Win!"), message: Text("You scored \(gameScore) points."), dismissButton: .default(Text("Restart"), action: {
-                                startGame()
-                            }))
-                        })
         }
     }
     

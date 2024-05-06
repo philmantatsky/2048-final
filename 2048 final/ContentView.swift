@@ -10,11 +10,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-            NavigationView {
+        NavigationView {
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color.green.opacity(0.3), Color.blue.opacity(0.3)]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all)
                 VStack {
-                    Text("")
+                    Text("Welcome to the Game!")
+                        .font(.title)
                         .padding()
-                    NavigationLink(destination: GameView(phrase: "")) {
+                    NavigationLink(destination: GameView(phrase: "Start Playing")) {
                         Text("Play Game")
                             .bold()
                             .font(.title)
@@ -23,10 +27,11 @@ struct ContentView: View {
                 .navigationTitle("Menu")
                 .navigationBarBackButtonHidden(true)
                 .padding()
-                
             }
         }
     }
+}
+
 
     #Preview {
         ContentView()
