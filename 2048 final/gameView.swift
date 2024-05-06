@@ -12,6 +12,7 @@ struct GameView: View {
     @State private var numbers2 = 2
     @State private var gameScore = 0
     @State private var isGameOver = false
+    @State private var isGameWinner = false
     @State private var highScore = 0
     let phrase: String
     
@@ -56,6 +57,11 @@ struct GameView: View {
                                 startGame()
                             }))
                         })
+            .alert(isPresented: $isGameWinner, content: {
+                            Alert(title: Text("Congratulations! You Win!"), message: Text("You scored \(gameScore) points."), dismissButton: .default(Text("Restart"), action: {
+                                startGame()
+                            }))
+                        })
         }
     }
     
@@ -75,15 +81,26 @@ struct GameView: View {
         }
         return true
     }
-
+    
+    private func gameWinner() -> Bool {
+        for i in 0..<4 {
+            for j in 0..<4 {
+                if gameBoard[i][j] == 4092 {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+            
     func startGame() {
         gameBoard = Array(repeating: [0, 0, 0, 0], count: 4)
         gameScore = 0
         isGameOver = false
+        isGameWinner = false
         insertNumber()
         insertNumber()
     }
-    
     
     func insertNumber() {
         var emptySpots = [(Int, Int)]()
@@ -121,6 +138,9 @@ struct GameView: View {
         if gameOver() {
                    self.isGameOver = true
                }
+        if gameWinner() {
+            self.isGameWinner = true
+        }
            }
 
         private func swipeLeft() {
@@ -179,6 +199,9 @@ struct GameView: View {
                 } else {
                     result.append(row[index])
                     index += 1
+                }
+                if gameScore > highScore {
+                    highScore = gameScore
                 }
             }
             return result
