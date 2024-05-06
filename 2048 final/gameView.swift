@@ -11,6 +11,8 @@ struct GameView: View {
     @State private var gameBoard = Array(repeating: [0, 0, 0, 0], count: 4)
     @State private var numbers2 = 2
     @State private var gameScore = 0
+    @State private var isGameOver = false
+    @State private var highScore = 0
     let phrase: String
     
     var body: some View {
@@ -18,6 +20,10 @@ struct GameView: View {
             VStack {
                 Text(phrase)
                     .font(.headline)
+                    .padding()
+                
+                Text("High Score: \(highScore)")
+                    .font(.title)
                     .padding()
                 
                 Text("Score: \(gameScore)")
@@ -33,18 +39,47 @@ struct GameView: View {
                     }
                 }
                 .padding(.horizontal)
+                if isGameOver {
+                    Text("Game Over!")
+                        .font(.largeTitle)
+                        .foregroundColor(.red)
+                        .padding()
+                                }
             }
             .navigationTitle("4096")
             .gesture(DragGesture()
                 .onEnded(handleSwipe))
             .padding()
             .onAppear(perform: startGame)
+            .alert(isPresented: $isGameOver, content: {
+                            Alert(title: Text("Game Over!"), message: Text("You scored \(gameScore) points."), dismissButton: .default(Text("Restart"), action: {
+                                startGame()
+                            }))
+                        })
         }
     }
     
+    private func gameOver() -> Bool {
+        for i in 0..<4 {
+            for j in 0..<4 {
+                if gameBoard[i][j] == 0 {
+                    return false
+                }
+                if j < 3 && gameBoard[i][j] == gameBoard[i][j + 1] {
+                    return false
+                }
+                if i < 3 && gameBoard[i][j] == gameBoard[i + 1][j] {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+
     func startGame() {
         gameBoard = Array(repeating: [0, 0, 0, 0], count: 4)
-        
+        gameScore = 0
+        isGameOver = false
         insertNumber()
         insertNumber()
     }
@@ -83,7 +118,10 @@ struct GameView: View {
                     swipeDown()
                 }
             }
-        }
+        if gameOver() {
+                   self.isGameOver = true
+               }
+           }
 
         private func swipeLeft() {
             var boardChanged = false
@@ -156,6 +194,7 @@ struct GameView: View {
             return newMatrix
         }
 }
+
 
 #Preview {
     GameView(phrase: "")
