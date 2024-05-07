@@ -19,6 +19,8 @@ struct GameView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.purple.opacity(0.3)]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                                    .edgesIgnoringSafeArea(.all)
                 VStack {
                     Text(phrase)
                         .font(.headline)
@@ -49,9 +51,6 @@ struct GameView: View {
                     }
                 }
                 .navigationTitle("4096")
-                .background(LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.3), Color.purple.opacity(0.3)]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .edgesIgnoringSafeArea(.all))
-                .foregroundColor(.white)
                 .gesture(DragGesture()
                     .onEnded(handleSwipe))
                 .padding()
