@@ -27,13 +27,13 @@ struct GameView: View {
                         .padding()
                     
                     Text("High Score: \(highScore)")
-                        .font(.title)
+                        .font(.custom("Times New Roman", size: 40))
                         .padding()
-                    
-                    Text("Score: \(gameScore)")
-                        .font(.title)
+                        .position(x: 175, y: -25)
+                    Text("Game Score: \(gameScore)")
+                        .font(.custom("Times New Roman", size: 40))
                         .padding()
-                    
+                        .position(x: 175, y: -120)
                     LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 5), count: 4), spacing: 15) {
                         ForEach(0..<16, id: \.self) { index in
                             let row = index / 4
@@ -42,6 +42,7 @@ struct GameView: View {
                                 .aspectRatio(1, contentMode: .fit)
                         }
                     }
+                    .position(x: 165, y: -59)
                     .padding(.horizontal)
                     if isGameOver {
                         Text("Game Over!")
@@ -221,7 +222,7 @@ struct GameView: View {
             return newMatrix
         }
 }
-
+    
 
 #Preview {
     GameView(phrase: "")

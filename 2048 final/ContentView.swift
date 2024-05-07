@@ -19,7 +19,7 @@ struct ContentView: View {
                         .font(.custom("Times New Roman", size: 50))
                         .bold()
                         .position(x: 180, y: 250)
-                    NavigationLink(destination: GameView(phrase: "Start Playing")) {
+                    NavigationLink(destination: GameView(phrase: "")) {
                         Text("Play Game")
                             .bold()
                             .font(.title)
