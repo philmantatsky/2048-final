@@ -14,7 +14,7 @@ struct CellView: View {
         ZStack {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
                 .fill(self.colorNumber(number))
-                Text(number > 0 ? "\(number)" : "")
+            Text(number > 0 ? "\(number)" : "")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundColor(.white)

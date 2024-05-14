@@ -24,7 +24,7 @@ struct ContentView: View {
                             .bold()
                             .font(.title)
                     }
-                    .position(x:170, y: 50)
+                    .position(x: 170, y: 50)
                 }
                 .navigationTitle("Menu")
                 .navigationBarBackButtonHidden(true)
@@ -35,6 +35,6 @@ struct ContentView: View {
 }
 
 
-    #Preview {
-        ContentView()
-    }
+#Preview {
+    ContentView()
+}
