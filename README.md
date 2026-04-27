@@ -1,7 +1,5 @@
 # 2048 — Swift iOS Clone
 
-# 2048 — Swift iOS Clone
-
 This is a native iOS implementation of the classic **2048** puzzle game, built entirely from scratch in Swift.
 
 The app challenges users to combine matching numbered tiles on a 4×4 grid, doubling their values with each merge, with the goal of reaching the elusive 2048 tile.
