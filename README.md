@@ -8,14 +8,6 @@ A native iOS implementation of the classic **2048** puzzle game, built from scra
 
 ---
 
-## 📱 Demo
-
-<!-- Add a screenshot or GIF here -->
-<!-- Recommended: a screen recording of a few merges + a high-score moment -->
-![Gameplay Screenshot](screenshots/gameplay.png)
-
----
-
 ## ✨ Features
 
 - **Smooth 60 FPS gameplay** — tile movements and merges feel responsive and natural
