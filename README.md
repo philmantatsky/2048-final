@@ -1,11 +1,22 @@
 # 2048 — Swift iOS Clone
 
-A native iOS implementation of the classic **2048** puzzle game, built from scratch in Swift with smooth animations, gesture controls, and a polished UI optimized for iPhone.
+# 2048 — Swift iOS Clone
+
+This is a native iOS implementation of the classic **2048** puzzle game, built entirely from scratch in Swift.
+
+The app challenges users to combine matching numbered tiles on a 4×4 grid, doubling their values with each merge, with the goal of reaching the elusive 2048 tile.
+
+I built it using **Swift** and **UIKit** in **Xcode**, designing the interface with Auto Layout and handling user input through `UISwipeGestureRecognizer` for fluid gesture controls.
+
+The core game logic is structured around a 2D array that represents the board, with each swipe triggering a sequence of direction transformation, tile compression, scoring, and new tile spawning.
+
+Along the way I worked through tricky bugs around chained merges and deadlock detection, and iterated on UI polish — spacing, typography, and animations — based on feedback from tech professionals I presented the project to.
+
+The result is a smooth, responsive 60 FPS game that feels native to iOS.
 
 ![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)
 ![iOS](https://img.shields.io/badge/iOS-15.0+-blue.svg)
 ![Platform](https://img.shields.io/badge/Platform-iPhone-lightgrey.svg)
-
 ---
 
 ## ✨ Features
